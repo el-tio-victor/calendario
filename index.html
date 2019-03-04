@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es_MX">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <style>
+       html,body{
+           font-size: 16px;
+           margin: 0;
+           padding: 0;
+           border: 0;
+       }
+       .container{
+           display: flex;
+           align-items: center;
+           justify-content: center;
+       }
+    </style>
+    <div class="container">
+        <table class='table'>
+            <thead><tr></tr></thead>
+            <tbody><tr></tr></tbody>
+        </table>
+    </div>
+    <script>
+        mes = ['ENERO','FEBRERO','MARZO','ABRIL','MAYOO','JUNIOO','JULIO','AGOSTO']
+        inicio = new Date(2019,03,3)
+        fin = new Date(2019,03,29)
+        seguir  = true
+        i = 0
+        
+        tabla = document.querySelector('.table')
+        cabecera = document.querySelector('.table thead tr')
+        cuerpo = document.querySelector('.table tbody tr')
+        
+        //tabla
+            titulo = document.createElement('CAPTION')
+            titulo.className='titulo'
+            titulo.innerText = mes[inicio.getMonth()]
+            tabla.appendChild(titulo)
+        
+        while(inicio < fin){
+            
+            //cabecera
+            td = document.createElement('TH')
+            td.innerText = inicio.getDate()
+            cabecera.appendChild(td)
+            
+            //cuerpo
+            td = document.createElement('TD')
+            if((inicio.getDay()!= 6) && (inicio.getDay()!= 0))
+            td.innerText = 0
+            cuerpo.appendChild(td)
+            
+            inicio.setDate(inicio.getDate()+1)
+            console.log(inicio)
+        }
+        
+        dia_mes = inicio.getDate()
+        dia_semana = inicio.getDay()
+        //console.log('Dia del mes...'+dia_mes+' dia de las semana...'+dia_semana)
+        
+    </script>
+</body>
+</html>
